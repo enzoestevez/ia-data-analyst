@@ -4,7 +4,14 @@ import pandas as pd
 from src.data_loader import load_dataset, get_dataset_overview
 from src.ai_context_builder import build_dataset_context
 from src.report_generator import generate_report
-from src.visualizations import plot_price_distribution, plot_rating_vs_price, plot_missing_values
+from src.visualizations import (
+    plot_price_distribution,
+    plot_rating_vs_price,
+    plot_missing_values,
+    plot_price_boxplot,
+    plot_top_neighborhoods,
+    plot_correlation_heatmap
+)
 
 def main():
     # 1️⃣ Crear carpeta outputs si no existe
@@ -56,7 +63,12 @@ def main():
     plot_price_distribution(df_plot)
     plot_rating_vs_price(df_plot)
     plot_missing_values(df_plot)
-    print("\n✅ Visualizations saved in 'outputs/'")
+
+    plot_price_boxplot(df_plot)
+    plot_top_neighborhoods(df_plot)
+    plot_correlation_heatmap(df_plot)
+
+    print("\nVisualizations saved in 'outputs/'")
 
 if __name__ == "__main__":
     main()

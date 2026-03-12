@@ -1,72 +1,227 @@
-# AI-Augmented Data Analysis - Airbnb Dataset
+# AI-Augmented Data Analysis – Airbnb Dataset
 
-Proyecto de portfolio que demuestra un **pipeline completo de análisis de datos potenciado con IA**, con reportes automáticos y visualizaciones profesionales.  
-El objetivo es simular cómo un Analista de Datos puede extraer insights de un dataset real, generar reportes y visualizar resultados de forma profesional.
+Portfolio project demonstrating a **complete AI-augmented data analysis pipeline** using Python.
+The project loads a real Airbnb dataset, performs **Exploratory Data Analysis (EDA)**, generates **professional visualizations**, and produces **AI-generated insights** using the OpenAI API.
 
+The goal is to simulate how a **Data Analyst can combine traditional data analysis with AI tools** to generate insights and reports automatically.
 
-## 🔹 Estructura del proyecto
-    ai-data-analyst/
-    │
-    ├─ data/ # Dataset original (airbnb.csv)
-    ├─ outputs/ # Gráficos y reportes generados automáticamente
-    ├─ src/ # Módulos de Python
-    │ ├─ data_loader.py
-    │ ├─ ai_context_builder.py
-    │ ├─ ai_agent.py
-    │ ├─ report_generator.py
-    │ └─ visualizations.py
-    ├─ main.py # Script principal para ejecutar todo el pipeline
-    └─ README.md # Este archivo
+---
 
+# Project Structure
 
-## 🔹 Instalación y ejecución
+```
+ai-data-analyst/
+│
+├── data/
+│   └── airbnb.csv                 # Original dataset
+│
+├── outputs/                       # Generated charts and reports
+│
+├── src/
+│   ├── data_loader.py             # Dataset loading and overview
+│   ├── ai_context_builder.py      # Converts dataset overview into AI-readable context
+│   ├── ai_agent.py                # OpenAI-powered analysis agent
+│   ├── report_generator.py        # Automatic report generation
+│   └── visualizations.py          # Professional data visualizations
+│
+├── main.py                        # Main pipeline execution script
+│
+└── README.md                      # Project documentation
+```
 
-1. Crear y activar un entorno virtual:
+---
+
+# Features
+
+This project includes a **full analysis workflow**:
+
+### Data Processing
+
+* Dataset loading
+* Dataset overview generation
+* Missing values detection
+* Data type inspection
+
+### AI-Augmented Analysis
+
+* Dataset context builder
+* AI-powered analytical insights using OpenAI
+* Automated question-based reporting
+
+### Exploratory Data Analysis (EDA)
+
+The pipeline automatically generates professional visualizations:
+
+1. Price Distribution
+2. Rating vs Price Relationship
+3. Missing Values per Column
+4. Price Distribution Boxplot (Outlier Detection)
+5. Top Neighborhoods by Average Price
+6. Correlation Heatmap of Numeric Variables
+
+These graphs simulate the type of analysis a **data analyst would perform when exploring a dataset for the first time.**
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/enzoestevez/ai-data-analyst.git
+cd ai-data-analyst
+```
+
+Create a virtual environment:
 
 ```bash
 python -m venv venv
-venv\Scripts\activate   # Windows
-# o
-source venv/bin/activate # Mac/Linux
 ```
-2. instalar dependencias
+
+Activate the environment.
+
+Windows:
 
 ```bash
-pip install pandas
+venv\Scripts\activate
 ```
-3. Ejecutar el pipeline completo:
+
+Mac/Linux:
 
 ```bash
-    python main.py
+source venv/bin/activate
 ```
 
-## Qué genera el proyecto
+Install dependencies:
 
-- Dataset Overview: filas, columnas, tipos de datos y missing values.
-- AI Dataset Context: descripción resumida del dataset para IA.
-- Reporte automático: insights simulados de IA sobre el dataset.
-- Visualizaciones profesionales:
- - price_distribution.png → Distribución de precios diarios.
- - rating_vs_price.png → Relación entre Rating General y Precio Diario.
- - missing_values.png → Valores faltantes por columna.
+```bash
+pip install pandas matplotlib openai
+```
 
-## Próximos pasos / mejoras
+---
 
-    1. Reemplazar el AI Agent simulado por IA real (OpenAI GPT) cuando haya acceso a tokens o plan.
-    2. Mejorar gráficos con Plotly para interactividad.
-    3. Exportar reportes a PDF para entregar análisis profesional completo.
-    4. Agregar más análisis automatizados basados en correlaciones o segmentaciones.
+# OpenAI API Setup
 
-🔹 Tecnologías utilizadas
+This project integrates **OpenAI to generate analytical insights**.
 
-    - Python 3
-    - Pandas (procesamiento de datos)
-    - Matplotlib (visualización)
-    - AI-simulación para insights (modular para reemplazar con IA real)
+For security reasons, the API key is **not included in the repository**.
 
-## Sobre el autor
+Set your environment variable before running the project.
 
-    Enzo Estévez – Estudiante de Analista Universitario en Ciencia de Datos, UNLU.
-    Portfolio: https://enzoestevez.com
-    GitHub: https://github.com/enzoestevez
-    linkedin: https://www.linkedin.com/in/enzoestevez/
+Windows:
+
+```bash
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+Mac/Linux:
+
+```bash
+export OPENAI_API_KEY="your_api_key_here"
+```
+
+Restart the terminal after setting the variable.
+
+---
+
+# Running the Project
+
+Execute the full analysis pipeline:
+
+```bash
+python main.py
+```
+
+The pipeline will:
+
+1. Load the dataset
+2. Generate a dataset overview
+3. Build an AI-readable dataset context
+4. Ask the AI analytical questions
+5. Generate an automatic analysis report
+6. Produce professional visualizations
+
+---
+
+# Output
+
+After running the pipeline, the following files will be generated inside:
+
+```
+outputs/
+```
+
+### Visualizations
+
+```
+price_distribution.png
+rating_vs_price.png
+missing_values.png
+price_boxplot.png
+top_neighborhoods_price.png
+correlation_heatmap.png
+```
+
+### AI Generated Report
+
+```
+report.txt
+```
+
+This report contains **AI-generated insights about the dataset**.
+
+---
+
+# Technologies Used
+
+* Python 3
+* Pandas
+* Matplotlib
+* OpenAI API
+* Exploratory Data Analysis (EDA)
+* Automated Reporting
+
+---
+
+# Learning Goals of the Project
+
+This project was built to demonstrate:
+
+* Data analysis workflow
+* Dataset exploration techniques
+* AI-assisted data analysis
+* Automated insight generation
+* Clean and modular Python project architecture
+
+---
+
+# Author
+
+**Enzo Estévez**
+
+Data Science Student – Universidad Nacional de Luján (UNLU)
+
+Portfolio
+https://enzoestevez.com
+
+GitHub
+https://github.com/enzoestevez
+
+LinkedIn
+https://www.linkedin.com/in/enzoestevez/
+
+---
+
+# Future Improvements
+
+Possible extensions of this project:
+
+* Interactive dashboards using **Plotly or Streamlit**
+* Automatic PDF report generation
+* Advanced statistical analysis
+* AI-driven data storytelling
+* Deployment as a web application
+
+---
+
+This project is part of a **Data + AI portfolio series** focused on building real-world analytical tools using Python and modern AI models.

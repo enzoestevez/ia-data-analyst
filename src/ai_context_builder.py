@@ -1,7 +1,9 @@
+# ai_context_builder.py
+
 def build_dataset_context(overview):
     """
-    Convert dataset overview into a text description
-    that an AI model can understand
+    Convert dataset overview into a structured description
+    that an AI model can analyze.
     """
 
     rows = overview["rows"]
@@ -10,21 +12,34 @@ def build_dataset_context(overview):
     missing_values = overview["missing_values"]
 
     context = f"""
-Dataset Summary
+DATASET SUMMARY
 
-Rows: {rows}
-Columns: {columns}
+Total Rows: {rows}
+Total Columns: {columns}
 
-Column Names:
+COLUMN NAMES:
 """
 
     for col in column_names:
         context += f"- {col}\n"
 
-    context += "\nColumns with missing values:\n"
+    context += "\nMISSING VALUES:\n"
+
+    missing_found = False
 
     for col, val in missing_values.items():
         if val > 0:
             context += f"- {col}: {val} missing values\n"
+            missing_found = True
+
+    if not missing_found:
+        context += "No missing values detected.\n"
+
+    context += """
+This dataset appears to contain Airbnb listing information,
+including pricing, ratings, and host-related attributes.
+
+Use this context to generate insights.
+"""
 
     return context
